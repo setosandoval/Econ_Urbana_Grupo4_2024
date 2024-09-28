@@ -1,18 +1,15 @@
-# Problem Set Template Repository for Big Data and Machine Learning for Applied Economics
+# Repositorio Talleres Grupo 4 - Economía Urbana 2024
 
-This is the template repository for the problem sets.
+Este es el repositorio con la solución de los talleres y el trabajo final para Economía Urbana en 2024-20. Los autores son el el grupo 4 conformado por Sergio Sandoval y María Fernanda Blanco.
 
-The repo should contain at least four folders:
+El repositorio contiene 4 carpetas. Una con el `trabajo final` y otras 3 el contenido correspondiente a la solución de los `talleres` 3, 4 y 5. 
 
-- `document`: contains your final document in `pdf` format. Ideally, the document should pull figures and tables directly from the `views` folder. I've included a latex template I created for the Thesis Seminar. 
-- `scripts`: contains all your scripts
-- `stores`: contains all the data sets used. If files are "too big" for GitHub, include a document describing where people can access the data.
-- `views`: contains all figures and tables
+En cada carpeta es posible encontrar:
+
+- `document`: contiene el documento final en formato `pdf`, así como el archivo latex.  
+- `scripts`: contiene todos los archivos de `código` en R para la solución del taller.
+- `stores`: contiene todos las `bases de datos`.
+- `views`: contiene todas las figuras y tablas.
 
 
-
-## Some general reminders: 
-
-- It is essential how you write up the document. Be sure to be organized and consistent in explaining your equations and findings. Make sure that there are no compilation errors.
-- Write understandable code, separating and commenting on each section. Coding, like in writing, style is critical for readability. If the code is well written, it should be self-contained. There is no need to write everything you did. I encourage you to follow the [tidyverse style guide](https://style.tidyverse.org/)
-
+Además, cada carpeta contiene su propio archivo `README`.

@@ -13,7 +13,7 @@
 rm(list = ls())
 
 #  Directorio 
-setwd("/Users/setosandoval/Desktop/Urbana/Talleres Repo/Econ_Urbana_Grupo4_2024/...")
+setwd("/Users/setosandoval/Desktop/Urbana/Talleres Repo/Econ_Urbana_Grupo4_2024/Taller 3")
 
 # Paquetes
 library(pacman)

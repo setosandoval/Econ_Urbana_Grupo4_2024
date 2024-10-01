@@ -205,9 +205,9 @@ diff_alquiler <- lm(diff_model, data = data_alquiler_clean)
 # Crear el mapeo de las variables con nombres más intuitivos
 coef_interes <- c(
   "near_200" = "Espacio Abierto Cerca (200m)",
-  "near_200:park" = "Efecto Heterogéneo Parque Cerca (200m)",
+  "near_200:park" = "Efecto Heterogéneo Plaza Cerca (200m)",
   "diff(near_200)" = "Diferencia Espacio Abierto Cerca (200m)",
-  "diff(near_200 * park)" = "Diferencia Efecto Heterogéneo Parque Cerca (200m)"
+  "diff(near_200 * park)" = "Diferencia Efecto Heterogéneo Plaza Cerca (200m)"
 )
 
 # Especificar que solo se muestren R2 y el número de observaciones

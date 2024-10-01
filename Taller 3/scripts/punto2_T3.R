@@ -96,4 +96,3 @@ cov_boot <- cov(beta_boot, alpha_boot)
 
 # Mostrar el resultado
 print(cov_boot)
-

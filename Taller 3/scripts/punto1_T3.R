@@ -26,9 +26,9 @@ p_load(
   stargazer,  # Generación de tablas de regresión estéticas
   lmtest,     # Pruebas para modelos lineales
   sandwich,   # Estimación de varianzas robustas, 
-  SFD,        # Spatial First Difference 
-  conleyreg,   # Errores conley
-  fixest   # Estimación efectos fijos
+  sfd,        # Spatial First Difference 
+  conleyreg,  # Errores conley
+  fixest      # Estimación efectos fijos
 )
 
 # Base de datos

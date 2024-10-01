@@ -1,0 +1,32 @@
+\begin{table}
+\centering
+\begin{talltblr}[         %% tabularray outer open
+entry=none,label=none,
+note{}={* p \num{< 0.1}, ** p \num{< 0.05}, *** p \num{< 0.001}},
+]                     %% tabularray outer close
+{                     %% tabularray inner open
+colspec={Q[]Q[]Q[]Q[]Q[]Q[]Q[]},
+column{1}={halign=l,},
+column{2}={halign=c,},
+column{3}={halign=c,},
+column{4}={halign=c,},
+column{5}={halign=c,},
+column{6}={halign=c,},
+column{7}={halign=c,},
+hline{10}={1,2,3,4,5,6,7}{solid, 0.05em, black},
+}                     %% tabularray inner close
+\toprule
+& (1) & (2) & (3) & (4) & (5) & (6) \\ \midrule %% TinyTableHeader
+Espacio Abierto Cerca (200m)                      & \num{-0.135}*** & \num{0.036}   & \num{-0.135}* & \num{0.036}   &                  &                \\
+& (\num{0.025})   & (\num{0.032}) & (\num{0.073}) & (\num{0.090}) &                  &                \\
+Efecto Heterogéneo Parque Cerca (200m)            & \num{0.061}**   & \num{-0.035}  & \num{0.061}   & \num{-0.035}  &                  &                \\
+& (\num{0.024})   & (\num{0.031}) & (\num{0.073}) & (\num{0.089}) &                  &                \\
+Diferencia Espacio Abierto Cerca (200m)           &                  &                &                &                & \num{-0.108}*** & \num{0.021}   \\
+&                  &                &                &                & (\num{0.024})   & (\num{0.031}) \\
+Diferencia Efecto Heterogéneo Parque Cerca (200m) &                  &                &                &                & \num{0.021}     & \num{-0.015}  \\
+&                  &                &                &                & (\num{0.023})   & (\num{0.030}) \\
+R2                                                & \num{0.452}     & \num{0.494}   & \num{0.452}   & \num{0.494}   & \num{0.442}     & \num{0.481}   \\
+Num.Obs.                                          & \num{38167}     & \num{22628}   & \num{38167}   & \num{22628}   & \num{38166}     & \num{22627}   \\
+\bottomrule
+\end{talltblr}
+\end{table}

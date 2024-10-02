@@ -97,6 +97,11 @@ hed <- hed  %>% filter(grepl("d\\d", term))
 hed$years <- c(2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,
               2011,2012,2013,2014,2015,2016,2017,2018,2019,2020)
 
+# Agregar columna para el índice hedónico
+hed <- hed %>%
+  mutate(hed_index = exp(estimate)*100,
+         lower = exp(conf.low)*100,
+         upper = exp(conf.high)*100)
 
 
 # IPVU =======================================================================
@@ -154,7 +159,6 @@ for (j in seq(2, nt)) {
   xmat[, j - 1] <- ifelse(time0 == timevar[j], -1, xmat[, j - 1])
 }
 
-colnames(xmat) <- paste("Time", seq(2011, 2015), sep = "")  
 xmat
 
 # Estima el modelo con variables de tiempo
@@ -183,6 +187,12 @@ IPVU <- broom::tidy(fit, conf.int =TRUE)
 IPVU$years <- c(2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,
                2011,2012,2013,2014,2015,2016,2017,2018,2019,2020)
 
+# Agregar columna para el índice hedónico
+IPVU <- IPVU %>%
+  mutate(IPVU_index = exp(estimate)*100,
+         lower = exp(conf.low)*100,
+         upper = exp(conf.high)*100)
+
 
 
 # EFECTOS FIJOS ==============================================================
@@ -202,11 +212,18 @@ fe <- fe %>% filter(grepl("factor\\(year\\)\\d+", term))
 fe$years <- c(2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,
                2011,2012,2013,2014,2015,2016,2017,2018,2019,2020)
 
+# Agregar columna para el índice hedónico
+fe <- fe %>%
+  mutate(fe_index = exp(estimate)*100,
+         lower = exp(conf.low)*100,
+         upper = exp(conf.high)*100)
+
+
 
 # GRÁFICO ====================================================================
 
 # Gráfico coeficientes con intervalo confianza
-plot <- ggplot() + 
+plot1 <- ggplot() + 
   # Indice Hedónico
   geom_point(data = hed, aes(x = years, y = estimate), color = "red", alpha = 0.5) +
   geom_line(data = hed, aes(x = years, y = estimate, color = "Índice Hedónico"), show.legend = TRUE) + 
@@ -226,4 +243,24 @@ plot <- ggplot() +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 60, hjust = 1)) + 
   scale_color_manual(values = c("Índice Hedónico" = "lightpink", "IPVU" = "lightblue", "Efectos Fijos" = "lightgreen"))
-ggsave("views/P1.pdf", plot)
+ggsave("views/P1_coef.pdf", plot1)
+
+# Gráfico índices
+plot2 <- ggplot() + 
+  # Indice Hedónico
+  geom_line(data = hed, aes(x = years, y = hed_index, color = "Índice Hedónico"), show.legend = TRUE) + 
+  geom_ribbon(data = hed, aes(x = years, ymin = lower, ymax = upper), alpha = 0.4, fill = "lightpink") +
+  # IPVU
+  geom_line(data = IPVU, aes(x = years, y = IPVU_index, color = "IPVU"), show.legend = TRUE) + 
+  geom_ribbon(data = IPVU, aes(x = years, ymin = lower, ymax = upper), alpha = 0.4, fill = "lightblue") +
+  # FE
+  geom_line(data = fe, aes(x = years, y = fe_index, color = "Efectos Fijos"), show.legend = TRUE) + 
+  geom_ribbon(data = fe, aes(x = years, ymin = lower, ymax = upper), alpha = 0.4, fill = "lightgreen") +
+  # Gráfico
+  scale_x_continuous(breaks = seq(min(hed$years), max(hed$years), by = 1)) + 
+  #scale_y_continuous(breaks = seq(min(-0.1), max(0.6), by = 0.1)) +
+  labs(x = "Años", y = "Índice", color = "Modelo") +  
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1)) + 
+  scale_color_manual(values = c("Índice Hedónico" = "red", "IPVU" = "blue", "Efectos Fijos" = "green"))
+ggsave("views/P1_ind.pdf", plot2)

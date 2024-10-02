@@ -6,10 +6,8 @@ El repositorio contiene 4 carpetas. Una con el `trabajo final` y otras 3 con el 
 
 En cada carpeta es posible encontrar:
 
-- `document`: contiene el documento final en formato `pdf`, así como el archivo latex.  
+- `document`: contiene el documento final en formato `pdf`..  
 - `scripts`: contiene todos los archivos de `código` en R para la solución del taller.
 - `stores`: contiene todos las `bases de datos`.
 - `views`: contiene todas las figuras y tablas.
 
-
-Además, cada carpeta contiene su propio archivo `README`.

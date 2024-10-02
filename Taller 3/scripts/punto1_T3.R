@@ -200,7 +200,7 @@ model_fe <- feols(log(sale_price) ~ factor(year) +
                                 year_built + building_sqft + land_sqft + num_bedrooms + num_rooms + 
                                 num_full_baths + num_half_baths + num_fireplaces + type_of_residence + 
                                 construction_quality + garage_attached + garage_size + central_heating +
-                                recent_renovation + central_air | pin, data = db, vcov = ~pin)
+                                recent_renovation + central_air | pin, data = db, cluster = ~pin)
 
 # Resumen de los términos estadísticos del modelo hedónico
 fe <- broom::tidy(model_fe, conf.int = TRUE)

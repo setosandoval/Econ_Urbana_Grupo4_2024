@@ -1,4 +1,4 @@
-# Repositorio Talleres Grupo 4 - Economía Urbana 2024
+# Repositorio Grupo 4 - Economía Urbana 2024
 
 Este es el repositorio con la solución de los talleres y el trabajo final para Economía Urbana en 2024-20. Los autores son el grupo 4, conformado por Sergio Sandoval y María Fernanda Blanco.
 
